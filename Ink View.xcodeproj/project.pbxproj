@@ -14,6 +14,7 @@
 		BE9F15281E0D767000C0B75D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE9F15271E0D767000C0B75D /* Assets.xcassets */; };
 		BE9F152B1E0D767000C0B75D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE9F15291E0D767000C0B75D /* LaunchScreen.storyboard */; };
 		BE9F15361E0D767000C0B75D /* Ink_ViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9F15351E0D767000C0B75D /* Ink_ViewTests.m */; };
+		BE9F15421E0D769900C0B75D /* UIView+InkTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9F15411E0D769900C0B75D /* UIView+InkTouch.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		BE9F15311E0D767000C0B75D /* Ink ViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ink ViewTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE9F15351E0D767000C0B75D /* Ink_ViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ink_ViewTests.m; sourceTree = "<group>"; };
 		BE9F15371E0D767000C0B75D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE9F15401E0D769900C0B75D /* UIView+InkTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+InkTouch.h"; sourceTree = "<group>"; };
+		BE9F15411E0D769900C0B75D /* UIView+InkTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+InkTouch.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,8 @@
 				BE9F15291E0D767000C0B75D /* LaunchScreen.storyboard */,
 				BE9F152C1E0D767000C0B75D /* Info.plist */,
 				BE9F151B1E0D767000C0B75D /* Supporting Files */,
+				BE9F15401E0D769900C0B75D /* UIView+InkTouch.h */,
+				BE9F15411E0D769900C0B75D /* UIView+InkTouch.m */,
 			);
 			path = "Ink View";
 			sourceTree = "<group>";
@@ -213,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE9F15421E0D769900C0B75D /* UIView+InkTouch.m in Sources */,
 				BE9F15231E0D767000C0B75D /* ViewController.m in Sources */,
 				BE9F15201E0D767000C0B75D /* AppDelegate.m in Sources */,
 				BE9F151D1E0D767000C0B75D /* main.m in Sources */,

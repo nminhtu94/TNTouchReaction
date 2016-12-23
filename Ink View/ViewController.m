@@ -8,7 +8,11 @@
 
 #import "ViewController.h"
 
+#import "UIView+InkTouch.h"
+
 @interface ViewController ()
+
+@property (nonatomic) UIView *testView;
 
 @end
 
@@ -16,12 +20,14 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  // Do any additional setup after loading the view, typically from a nib.
+  self.testView = [[UIView alloc] initWithFrame:CGRectZero];
+  [self.testView setInkDuration:0.2];
+  [self.view addSubview:self.testView];
 }
 
-- (void)didReceiveMemoryWarning {
-  [super didReceiveMemoryWarning];
-  // Dispose of any resources that can be recreated.
+- (void)viewWillLayoutSubviews {
+  [super viewWillLayoutSubviews];
+  self.testView.frame = self.view.bounds;
 }
 
 @end
