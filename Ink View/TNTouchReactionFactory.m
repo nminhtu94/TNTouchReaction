@@ -2,22 +2,26 @@
 
 #import "TNCircularTouchReactionView.h"
 #import "TNFillTouchReactionView.h"
+#import "TNHighlightTouchReactionView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @implementation TNTouchReactionFactory
 
-+ (UIView<TNTouchReactionProtocol> *)createTouchReactionViewWithAttributes:
-    (TNTouchReactionAttributes *)attributes appliedView:(UIView *)applied {
++ (TNTouchReactionView *)createTouchReactionViewWithAttributes:
+    (TNTouchReactionAttributes *)attributes appliedView:(UIView *)appliedView {
   TNTouchReactionStyle style = (TNTouchReactionStyle)[[attributes valueForTouchReactionAttributeKey:
-                                   kTouchReactionStyleAttribute] unsignedIntegerValue];
+      kTouchReactionStyleAttribute] unsignedIntegerValue];
   switch (style) {
-    case CIRCULAR_INK_TOUCH:
+    case CIRCULAR_TOUCH_REACTION:
       return [[TNCircularTouchReactionView alloc] initWithTouchReactionAttributes:attributes
-                                                                  appliedView:applied];
-    case FILL_INK_TOUCH:
+                                                                      appliedView:appliedView];
+    case FILL_TOUCH_REACTION:
       return [[TNFillTouchReactionView alloc] initWithTouchReactionAttributes:attributes
-                                                              appliedView:applied];
+                                                                  appliedView:appliedView];
+    case HIGHLIGHT_TOUCH_REACTION:
+      return [[TNHighlightTouchReactionView alloc] initWithTouchReactionAttributes:attributes
+                                                                       appliedView:appliedView];
     default:
       return nil;
   }

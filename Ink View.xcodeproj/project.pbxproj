@@ -20,6 +20,8 @@
 		BE9F154D1E0E89C400C0B75D /* TNFillTouchReactionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9F154C1E0E89C400C0B75D /* TNFillTouchReactionView.m */; };
 		BE9F15511E0ECCE000C0B75D /* TNTouchReactionAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9F15501E0ECCE000C0B75D /* TNTouchReactionAttributes.m */; };
 		BE9F15541E0F527900C0B75D /* TNTouchReactionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9F15531E0F527900C0B75D /* TNTouchReactionView.m */; };
+		BE9F155A1E0F5D1200C0B75D /* TNHighlightTouchReactionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9F15591E0F5D1200C0B75D /* TNHighlightTouchReactionView.m */; };
+		BE9F15601E0F7E2A00C0B75D /* UIButton+TouchReaction.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9F155F1E0F7E2A00C0B75D /* UIButton+TouchReaction.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,10 @@
 		BE9F15501E0ECCE000C0B75D /* TNTouchReactionAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNTouchReactionAttributes.m; sourceTree = "<group>"; };
 		BE9F15521E0F527800C0B75D /* TNTouchReactionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNTouchReactionView.h; sourceTree = "<group>"; };
 		BE9F15531E0F527900C0B75D /* TNTouchReactionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNTouchReactionView.m; sourceTree = "<group>"; };
+		BE9F15581E0F5D1200C0B75D /* TNHighlightTouchReactionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNHighlightTouchReactionView.h; sourceTree = "<group>"; };
+		BE9F15591E0F5D1200C0B75D /* TNHighlightTouchReactionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNHighlightTouchReactionView.m; sourceTree = "<group>"; };
+		BE9F155E1E0F7E2A00C0B75D /* UIButton+TouchReaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+TouchReaction.h"; sourceTree = "<group>"; };
+		BE9F155F1E0F7E2A00C0B75D /* UIButton+TouchReaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+TouchReaction.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +146,8 @@
 				BE9F15551E0F5A2700C0B75D /* TNTouchReactionView */,
 				BE9F15401E0D769900C0B75D /* UIView+TouchReaction.h */,
 				BE9F15411E0D769900C0B75D /* UIView+TouchReaction.m */,
+				BE9F155E1E0F7E2A00C0B75D /* UIButton+TouchReaction.h */,
+				BE9F155F1E0F7E2A00C0B75D /* UIButton+TouchReaction.m */,
 			);
 			name = TNTouchReaction;
 			sourceTree = "<group>";
@@ -153,6 +161,8 @@
 				BE9F154C1E0E89C400C0B75D /* TNFillTouchReactionView.m */,
 				BE9F15521E0F527800C0B75D /* TNTouchReactionView.h */,
 				BE9F15531E0F527900C0B75D /* TNTouchReactionView.m */,
+				BE9F15581E0F5D1200C0B75D /* TNHighlightTouchReactionView.h */,
+				BE9F15591E0F5D1200C0B75D /* TNHighlightTouchReactionView.m */,
 			);
 			name = TNTouchReactionView;
 			sourceTree = "<group>";
@@ -287,6 +297,8 @@
 				BE9F15201E0D767000C0B75D /* AppDelegate.m in Sources */,
 				BE9F151D1E0D767000C0B75D /* main.m in Sources */,
 				BE9F15541E0F527900C0B75D /* TNTouchReactionView.m in Sources */,
+				BE9F155A1E0F5D1200C0B75D /* TNHighlightTouchReactionView.m in Sources */,
+				BE9F15601E0F7E2A00C0B75D /* UIButton+TouchReaction.m in Sources */,
 				BE9F15511E0ECCE000C0B75D /* TNTouchReactionAttributes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

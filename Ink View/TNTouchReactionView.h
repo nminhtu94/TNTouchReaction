@@ -5,6 +5,8 @@
 #import "TNTouchReactionProtocol.h"
 #import "TNTouchReactionStyle.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface TNTouchReactionView : UIView<TNTouchReactionProtocol>
 
 @property (nonatomic, assign, readonly) TNTouchReactionStyle touchReactionStyle;
@@ -22,3 +24,5 @@
 - (instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -4,7 +4,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIView (TouchReaction)
+@interface UIButton (TouchReaction)
 
 - (void)setTouchReactionStyle:(TNTouchReactionStyle)style;
 

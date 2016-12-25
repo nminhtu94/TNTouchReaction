@@ -1,10 +1,11 @@
-#ifndef TNInkViewStyle_h
-#define TNInkViewStyle_h
+#ifndef TNTouchReactionStyle_h
+#define TNTouchReactionStyle_h
 
 typedef enum NSUInteger {
-  INK_VIEW_NONE = 99,
-  CIRCULAR_INK_TOUCH = 0,
-  FILL_INK_TOUCH = 1
+  NONE_TOUCH_REACTION = 99,
+  CIRCULAR_TOUCH_REACTION = 0,
+  FILL_TOUCH_REACTION = 1,
+  HIGHLIGHT_TOUCH_REACTION = 2
 } TNTouchReactionStyle;
 
-#endif /* TNInkViewStyle_h */
+#endif /* TNTouchReactionStyle_h */

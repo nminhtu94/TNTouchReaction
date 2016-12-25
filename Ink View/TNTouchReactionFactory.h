@@ -3,13 +3,14 @@
 
 #import "TNTouchReactionProtocol.h"
 #import "TNTouchReactionStyle.h"
+#import "TNTouchReactionView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TNTouchReactionFactory : NSObject
 
-+ (UIView<TNTouchReactionProtocol> *)createTouchReactionViewWithAttributes:
-    (TNTouchReactionAttributes *)attributes appliedView:(UIView *)applied;
++ (TNTouchReactionView *)createTouchReactionViewWithAttributes:
+    (TNTouchReactionAttributes *)attributes appliedView:(UIView *)appliedView;
 
 @end
 

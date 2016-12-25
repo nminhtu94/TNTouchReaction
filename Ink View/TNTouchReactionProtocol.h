@@ -2,6 +2,8 @@
 
 #import "TNTouchReactionAttributes.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol TNTouchReactionProtocol <NSObject>
 
 @required
@@ -14,3 +16,5 @@
 - (void)animateOut;
 
 @end
+
+NS_ASSUME_NONNULL_END

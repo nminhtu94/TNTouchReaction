@@ -1,4 +1,4 @@
-#import "UIView+TouchReaction.h"
+#import "UIButton+TouchReaction.h"
 
 #import "TNTouchReactionAttributes.h"
 #import "TNTouchReactionFactory.h"
@@ -13,13 +13,13 @@ static void *kTouchReactionAttribute = &kTouchReactionAttribute;
 /// The touch reaction view itself.
 static TNTouchReactionView *TouchReactionView = nil;
 
-@implementation UIView (TouchReaction)
+@implementation UIButton (TouchReaction)
 
 - (void)createReactionFromTouch:(UITouch *)touch {
   if ([self touchReactionStyle] == NONE_TOUCH_REACTION) {
     return;
   }
-
+  
   CGPoint touchLocation = [touch locationInView:self];
   
   [TouchReactionView removeFromSuperview];
@@ -36,7 +36,7 @@ static TNTouchReactionView *TouchReactionView = nil;
   if ([self touchReactionStyle] == NONE_TOUCH_REACTION) {
     return;
   }
-
+  
   if (TouchReactionView) {
     [TouchReactionView animateOut];
     TouchReactionView = nil;
@@ -77,12 +77,12 @@ static TNTouchReactionView *TouchReactionView = nil;
 - (CGFloat)touchReactionStyle {
   TNTouchReactionAttributes *attributes = [self touchReactionAttributes];
   return [[attributes valueForTouchReactionAttributeKey:
-             kTouchReactionStyleAttribute] unsignedIntegerValue];
+           kTouchReactionStyleAttribute] unsignedIntegerValue];
 }
 
 - (TNTouchReactionAttributes *)touchReactionAttributes {
   TNTouchReactionAttributes *attributeObject =
-      objc_getAssociatedObject(self, kTouchReactionAttribute);
+  objc_getAssociatedObject(self, kTouchReactionAttribute);
   if (attributeObject == nil) {
     attributeObject = [[TNTouchReactionAttributes alloc] init];
     objc_setAssociatedObject(self, kTouchReactionAttribute, attributeObject,

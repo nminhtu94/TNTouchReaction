@@ -27,8 +27,8 @@ NSString *const kTouchReactionStyleAttribute = @"kTouchReactionStyle";
     _attributes[kTouchReactionColorAttribute] = [UIColor lightGrayColor];
     _attributes[kTouchReactionRadiusAttribute] = @(48);
     _attributes[kTouchReactionDurationAttribute] = @(0.2);
-    _attributes[kTouchReactionOpacityAttribute] = @(0.15);
-    _attributes[kTouchReactionStyleAttribute] = @(INK_VIEW_NONE);
+    _attributes[kTouchReactionOpacityAttribute] = @(0.2);
+    _attributes[kTouchReactionStyleAttribute] = @(NONE_TOUCH_REACTION);
   }
   return self;
 }
