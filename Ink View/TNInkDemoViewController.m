@@ -88,7 +88,8 @@ static CGFloat const kInkDemoViewHorizontalPadding = 12.0f;
                                     action:@selector(buttonTapped:)
                           forControlEvents:UIControlEventTouchUpInside];
     
-    [_highlightTouchReactionView setTouchReactionStyle:HIGHLIGHT_TOUCH_REACTION];
+    [_highlightTouchReactionView setTouchReactionEnabled:YES];
+    [_highlightTouchReactionView setTouchReactionStyle:FILL_TOUCH_REACTION];
     [_highlightTouchReactionView setTouchReactionDuration:0.2];
   }
   return _highlightTouchReactionView;
@@ -99,7 +100,9 @@ static CGFloat const kInkDemoViewHorizontalPadding = 12.0f;
     _fillInkTouch = [[UIView alloc] initWithFrame:CGRectZero];
     _fillInkTouch.layer.borderWidth = 1;
     _fillInkTouch.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    [_fillInkTouch setTouchReactionStyle:FILL_TOUCH_REACTION];
+
+    [_fillInkTouch setTouchReactionEnabled:YES];
+    [_fillInkTouch setTouchReactionStyle:HIGHLIGHT_TOUCH_REACTION];
     [_fillInkTouch setTouchReactionDuration:0.4];
   }
   return _fillInkTouch;
@@ -110,6 +113,8 @@ static CGFloat const kInkDemoViewHorizontalPadding = 12.0f;
     _circularInkTouch = [[UIView alloc] initWithFrame:CGRectZero];
     _circularInkTouch.layer.borderWidth = 1;
     _circularInkTouch.layer.borderColor = [UIColor lightGrayColor].CGColor;
+
+    [_circularInkTouch setTouchReactionEnabled:YES];
     [_circularInkTouch setTouchReactionStyle:CIRCULAR_TOUCH_REACTION];
   }
   return _circularInkTouch;

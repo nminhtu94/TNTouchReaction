@@ -7,18 +7,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) TNTouchReactionAttributes *attributes;
 @property (nonatomic, weak) UIView *appliedView;
 
-@property (nonatomic, assign) TNTouchReactionStyle touchReactionStyle;
-@property (nonatomic) CGFloat touchReactionDuration;
-@property (nonatomic) UIColor *touchReactionColor;
-@property (nonatomic) CGFloat touchReactionRadius;
-@property (nonatomic, assign) CGFloat touchReactionOpacity;
-
 @end
 
 @implementation TNTouchReactionView
 
-- (instancetype)initWithTouchReactionAttributes:(TNTouchReactionAttributes *)touchReactionAttributes
-                                    appliedView:(UIView *)appliedView {
+- (instancetype)initWithReactionAttributes:(TNTouchReactionAttributes *)touchReactionAttributes
+                               appliedView:(UIView *)appliedView {
   self = [super initWithFrame:CGRectZero];
   if (self) {
     _attributes = touchReactionAttributes;
@@ -27,13 +21,17 @@ NS_ASSUME_NONNULL_BEGIN
   return self;
 }
 
-- (void)animateIn { }
+- (void)animateIn {
+  NSParameterAssert(NO);
+}
 
-- (void)animateOut { }
+- (void)animateOut {
+  NSParameterAssert(NO);
+}
 
-- (TNTouchReactionStyle)touchReactionStyle {
-  return (TNTouchReactionStyle)[[self.attributes valueForTouchReactionAttributeKey:
-                                   kTouchReactionStyleAttribute] unsignedIntegerValue];
+- (TRReactionStyle)touchReactionStyle {
+  return (TRReactionStyle)[[self.attributes valueForTouchReactionAttributeKey:
+      kTouchReactionStyleAttribute] unsignedIntegerValue];
 }
 
 - (UIColor *)touchReactionColor {
@@ -42,18 +40,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (CGFloat)touchReactionDuration {
   return [[self.attributes valueForTouchReactionAttributeKey:
-             kTouchReactionDurationAttribute] floatValue];
+      kTouchReactionDurationAttribute] floatValue];
 }
 
 - (CGFloat)touchReactionRadius {
   return [[self.attributes valueForTouchReactionAttributeKey:
-             kTouchReactionRadiusAttribute] floatValue];
+       kTouchReactionRadiusAttribute] floatValue];
 }
 
 - (CGFloat)touchReactionOpacity {
   return [[self.attributes valueForTouchReactionAttributeKey:
-             kTouchReactionOpacityAttribute] floatValue];
+      kTouchReactionOpacityAttribute] floatValue];
 }
+
 
 @end
 

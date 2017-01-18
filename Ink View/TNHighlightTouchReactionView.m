@@ -6,7 +6,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithTouchReactionAttributes:(TNTouchReactionAttributes *)touchReactionAttributes
                                     appliedView:(UIView *)appliedView {
-  self = [super initWithTouchReactionAttributes:touchReactionAttributes appliedView:appliedView];
+  self = [super initWithReactionAttributes:touchReactionAttributes appliedView:appliedView];
   if (self) {
     self.backgroundColor = self.touchReactionColor;
   }

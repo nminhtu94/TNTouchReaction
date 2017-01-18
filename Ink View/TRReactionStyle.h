@@ -6,6 +6,6 @@ typedef enum NSUInteger {
   CIRCULAR_TOUCH_REACTION = 0,
   FILL_TOUCH_REACTION = 1,
   HIGHLIGHT_TOUCH_REACTION = 2
-} TNTouchReactionStyle;
+} TRReactionStyle;
 
 #endif /* TNTouchReactionStyle_h */

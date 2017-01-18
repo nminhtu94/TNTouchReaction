@@ -4,9 +4,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIView (TouchReaction)
+@interface TRTouchReceiverView : UIView
 
-- (void)setTouchReactionEnabled:(BOOL)enabled;
+- (instancetype)initWithView:(UIView *)view NS_DESIGNATED_INITIALIZER;
 
 - (void)setTouchReactionStyle:(TRReactionStyle)style;
 
@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setTouchReactionColor:(UIColor *)reactionColor;
 
 - (void)setTouchReactionOpacity:(CGFloat)opacity;
+
+- (instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
+- (instancetype)initWithCoder:(NSCoder *)aDecoder NS_UNAVAILABLE;
 
 @end
 

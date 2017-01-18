@@ -8,9 +8,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation TNFillTouchReactionView
 
-- (instancetype)initWithTouchReactionAttributes:(TNTouchReactionAttributes *)touchReactionAttributes
-                                    appliedView:(UIView *)appliedView {
-  self = [super initWithTouchReactionAttributes:touchReactionAttributes appliedView:appliedView];
+- (instancetype)initWithReactionAttributes:(TNTouchReactionAttributes *)touchReactionAttributes
+                               appliedView:(UIView *)appliedView {
+  self = [super initWithReactionAttributes:touchReactionAttributes appliedView:appliedView];
   if (self) {
     self.backgroundColor = self.touchReactionColor;
     self.layer.opacity = self.touchReactionOpacity;

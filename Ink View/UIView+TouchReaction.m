@@ -1,116 +1,50 @@
 #import "UIView+TouchReaction.h"
 
-#import "TNTouchReactionAttributes.h"
-#import "TNTouchReactionFactory.h"
+#import "TRTouchReceiverView.h"
 
 #import <objc/runtime.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 /// ObjC associated key for @c TNTouchReactionAttributes object.
-static void *kTouchReactionAttribute = &kTouchReactionAttribute;
-
-/// The touch reaction view itself.
-static TNTouchReactionView *TouchReactionView = nil;
+static void *kTouchReactionView = &kTouchReactionView;
 
 @implementation UIView (TouchReaction)
 
-- (void)createReactionFromTouch:(UITouch *)touch {
-  if ([self touchReactionStyle] == NONE_TOUCH_REACTION) {
-    return;
-  }
-
-  CGPoint touchLocation = [touch locationInView:self];
-  
-  [TouchReactionView removeFromSuperview];
-  TouchReactionView = [TNTouchReactionFactory createTouchReactionViewWithAttributes:
-      [self touchReactionAttributes] appliedView:self];
-  TouchReactionView.center = touchLocation;
-  
-  [self addSubview:TouchReactionView];
-  
-  [TouchReactionView animateIn];
-}
-
-- (void)dismissTouchReaction {
-  if ([self touchReactionStyle] == NONE_TOUCH_REACTION) {
-    return;
-  }
-
-  if (TouchReactionView) {
-    [TouchReactionView animateOut];
-    TouchReactionView = nil;
-  }
-}
-
-#pragma mark - Touches
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *_Nullable)event {
-  [super touchesBegan:touches withEvent:event];
-  UITouch *touch = [touches anyObject];
-  [self createReactionFromTouch:touch];
-}
-
-- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *_Nullable)event {
-  [super touchesEnded:touches withEvent:event];
-  [self dismissTouchReaction];
-}
-
-- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *_Nullable)event {
-  [super touchesMoved:touches withEvent:event];
-  UITouch *touch = [touches anyObject];
-  if (self.superview) {
-    CGPoint touchLocation = [touch locationInView:self.superview];
-    if (!CGRectContainsPoint(self.frame, touchLocation)) {
-      [self dismissTouchReaction];
-    }
-  }
-}
-
-- (void)touchesCancelled:(NSSet<UITouch *> *_Nullable)touches withEvent:(UIEvent *_Nullable)event {
-  [super touchesCancelled:touches withEvent:event];
-  [self dismissTouchReaction];
-}
-
-#pragma mark - Getter
-
-- (CGFloat)touchReactionStyle {
-  TNTouchReactionAttributes *attributes = [self touchReactionAttributes];
-  return [[attributes valueForTouchReactionAttributeKey:
-             kTouchReactionStyleAttribute] unsignedIntegerValue];
-}
-
-- (TNTouchReactionAttributes *)touchReactionAttributes {
-  TNTouchReactionAttributes *attributeObject =
-      objc_getAssociatedObject(self, kTouchReactionAttribute);
-  if (attributeObject == nil) {
-    attributeObject = [[TNTouchReactionAttributes alloc] init];
-    objc_setAssociatedObject(self, kTouchReactionAttribute, attributeObject,
+- (TRTouchReceiverView *)touchReceiverView {
+  TRTouchReceiverView *receiverView = objc_getAssociatedObject(self, kTouchReactionView);
+  if (receiverView == nil) {
+    receiverView = [[TRTouchReceiverView alloc] initWithView:self];
+    objc_setAssociatedObject(self, kTouchReactionView, receiverView,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
   }
-  return attributeObject;
+  return receiverView;
 }
 
 #pragma mark - Setter
 
-- (void)setTouchReactionStyle:(TNTouchReactionStyle)style {
-  TNTouchReactionAttributes *attributes = [self touchReactionAttributes];
-  [attributes setValue:@(style) forTouchReactionAttributeKey:kTouchReactionStyleAttribute];
+- (void)setTouchReactionEnabled:(BOOL)enabled {
+  if (enabled) {
+    [self addSubview:[self touchReceiverView]];
+  } else {
+    [[self touchReceiverView] removeFromSuperview];
+  }
+}
+
+- (void)setTouchReactionStyle:(TRReactionStyle)style {
+  [[self touchReceiverView] setTouchReactionStyle:style];
 }
 
 - (void)setTouchReactionDuration:(CGFloat)duration {
-  TNTouchReactionAttributes *attributes = [self touchReactionAttributes];
-  [attributes setValue:@(duration) forTouchReactionAttributeKey:kTouchReactionDurationAttribute];
+  [[self touchReceiverView] setTouchReactionDuration:duration];
 }
 
 - (void)setTouchReactionColor:(UIColor *)reactionColor {
-  TNTouchReactionAttributes *attributes = [self touchReactionAttributes];
-  [attributes setValue:reactionColor forTouchReactionAttributeKey:kTouchReactionColorAttribute];
+  [[self touchReceiverView] setTouchReactionColor:reactionColor];
 }
 
 - (void)setTouchReactionOpacity:(CGFloat)opacity {
-  TNTouchReactionAttributes *attributes = [self touchReactionAttributes];
-  [attributes setValue:@(opacity) forTouchReactionAttributeKey:kTouchReactionOpacityAttribute];
+  [[self touchReceiverView] setTouchReactionOpacity:opacity];
 }
 
 @end

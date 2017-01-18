@@ -1,6 +1,6 @@
 #import "TNTouchReactionAttributes.h"
 
-#import "TNTouchReactionStyle.h"
+#import "TRReactionStyle.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
